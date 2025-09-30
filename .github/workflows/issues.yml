@@ -1,0 +1,40 @@
+name: Issues Event Details
+
+on:
+  issues:
+    types: [opened, edited, deleted, closed, reopened, labeled, unlabeled]
+
+jobs:
+  log-issue-details:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Output issue event action
+        run: echo "Issue event action - ${{ github.event.action }}"
+      
+      - name: Output issue number
+        run: echo "Issue number - ${{ github.event.issue.number }}"
+      
+      - name: Output issue title
+        run: echo "Issue title - ${{ github.event.issue.title }}"
+      
+      - name: Output issue body
+        run: echo "Issue body - ${{ github.event.issue.body }}"
+      
+      - name: Output issue user
+        run: echo "Issue created by - ${{ github.event.issue.user.login }}"
+      
+      - name: Output issue state
+        run: echo "Issue state - ${{ github.event.issue.state }}"
+      
+      - name: Output issue URL
+        run: echo "Issue URL - ${{ github.event.issue.html_url }}"
+      
+      - name: Output repository name
+        run: echo "Repository - ${{ github.repository }}"
+      
+      - name: Output event name
+        run: echo "Event name - ${{ github.event_name }}"
+      
+      - name: Dump entire GitHub context
+        run: echo '${{ toJSON(github) }}'
