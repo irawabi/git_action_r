@@ -5,6 +5,7 @@ import eslint from 'vite-plugin-eslint';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), eslint()],
+  base: '/git_action_r/', // Your repository name
   test: {
     globals: true,
     environment: 'jsdom',
